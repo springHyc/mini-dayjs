@@ -1,0 +1,22 @@
+{
+  "name": "mini-dayjs",
+  "version": "0.1.0",
+  "description": "教学用迷你时间工具库：理解 dayjs/moment 的设计思路，非生产替代方案",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./plugins/*": "./plugins/*.js"
+  },
+  "keywords": [
+    "dayjs",
+    "date",
+    "time",
+    "education"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "demo": "node demo/demo.mjs",
+    "demo:web": "npx --yes serve ."
+  }
+}
