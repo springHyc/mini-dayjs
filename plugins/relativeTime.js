@@ -42,23 +42,36 @@ export default function relativeTimePlugin(_option, Dayjs, dayjs) {
  * @param {number} selfMs 当前实例时间戳
  * @param {number} baseMs 参照时间戳
  * @param {{ nowLabel: string }} labels
+ *
+ * 与 dayjs 官方 relativeTime 默认行为对齐（见其 plugin/relativeTime 里 thresholds + diff + Math.round）：
+ * - 若用「总秒数 floor 再除以 60」当分钟数，119 秒会得到 1 分钟；
+ * - dayjs 在超过「约 1 分钟」区间后，用「分钟」为单位的浮点差再四舍五入，119 秒 ≈ 1.98 分 → 2 分钟。
+ * - 秒级展示上限约 44 秒、45～89 秒常显示为「1 分钟」等，与默认 thresholds 一致。
+ * - 秒这一档的文案：dayjs 的 zh-cn 里 relativeTime.s 是固定「几秒」，不会显示「30 秒」这种具体数字
+ *   （与 en 的 "a few seconds" 同理）；本演示与官方中文文案对齐。
  */
 function formatRelative(selfMs, baseMs, labels) {
   const diff = baseMs - selfMs
   if (diff === 0) return labels.nowLabel
 
   const past = diff > 0
-  const abs = Math.abs(diff)
+  const absMs = Math.abs(diff)
+  const secFloat = absMs / 1000
+  /** 与 dayjs 对 diff 结果取整方式一致（用于是否进入「秒 / 近一分钟」等档位） */
+  const secRounded = Math.round(secFloat)
 
-  const sec = Math.floor(abs / 1000)
-  if (sec < 60) {
-    return past ? `${sec} 秒前` : `${sec} 秒后`
+  if (secRounded <= 44) {
+    return past ? '几秒前' : '几秒内'
   }
-  const min = Math.floor(sec / 60)
-  if (min < 60) {
-    return past ? `${min} 分钟前` : `${min} 分钟后`
+  if (secRounded <= 89) {
+    return past ? '1 分钟前' : '1 分钟后'
   }
-  const hour = Math.floor(min / 60)
+
+  const minRounded = Math.round(absMs / 60000)
+  if (minRounded < 60) {
+    return past ? `${minRounded} 分钟前` : `${minRounded} 分钟后`
+  }
+  const hour = Math.floor(minRounded / 60)
   if (hour < 24) {
     return past ? `${hour} 小时前` : `${hour} 小时后`
   }

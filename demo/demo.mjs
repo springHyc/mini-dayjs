@@ -63,6 +63,76 @@ console.log(
 );
 console.log('cmpA.isSame(cmpB, "d")（按「天」比较是否同一天）=>', sameDay);
 
+title('7.1 subtract(1, "M")：月末减一月 → 对齐到上月最后一天');
+console.log(
+  'dayjs("2024-03-31").subtract(1, "M").format("YYYY-MM-DD")',
+  "=>",
+  dayjs("2024-03-31").subtract(1, "M").format("YYYY-MM-DD"),
+);
+
+title('7.2 add(1, "y")：闰年 2/29 加一年 → 非闰年 2/28');
+console.log(
+  'dayjs("2024-02-29").add(1, "y").format("YYYY-MM-DD")',
+  "=>",
+  dayjs("2024-02-29").add(1, "y").format("YYYY-MM-DD"),
+);
+
+title('7.3 add(1, "Q")：加一季度（日历三个月）');
+console.log(
+  'dayjs("2024-01-15").add(1, "Q").format("YYYY-MM-DD")',
+  "=>",
+  dayjs("2024-01-15").add(1, "Q").format("YYYY-MM-DD"),
+);
+
+title("7.4 isBefore：是否早于另一时刻");
+console.log(
+  'dayjs("2024-01-01").isBefore("2024-06-01")',
+  "=>",
+  dayjs("2024-01-01").isBefore("2024-06-01"),
+);
+
+title("7.5 isAfter：是否晚于另一时刻");
+console.log(
+  'dayjs("2024-06-01").isAfter("2024-01-01")',
+  "=>",
+  dayjs("2024-06-01").isAfter("2024-01-01"),
+);
+
+title('7.6 isSame(..., "M")：是否同一自然月');
+console.log(
+  'dayjs("2024-03-10").isSame(dayjs("2024-03-20"), "M")',
+  "=>",
+  dayjs("2024-03-10").isSame(dayjs("2024-03-20"), "M"),
+);
+
+title('7.7 startOf("d") / endOf("d")：当天起点与结尾（含时分秒）');
+const dRange = dayjs("2024-06-15 12:00:00");
+console.log(
+  'dayjs("2024-06-15 12:00:00").startOf("d").format("HH:mm:ss")',
+  "=>",
+  dRange.startOf("d").format("HH:mm:ss"),
+);
+console.log(
+  'dayjs("2024-06-15 12:00:00").endOf("d").format("HH:mm:ss")',
+  "=>",
+  dRange.endOf("d").format("HH:mm:ss"),
+);
+
+title("7.8 fromNow()：约 30 秒前（与 zh-cn 一致为「几秒前」，非「30 秒前」）");
+const sec30Ago = dayjs(Date.now() - 30000);
+console.log("dayjs(Date.now() - 30000).fromNow()", "=>", sec30Ago.fromNow());
+
+title("7.9 fromNow()：约 55 秒前（relativeTime 阈值下常显示为「1 分钟」）");
+const almost1minAgo = dayjs(Date.now() - 55000);
+console.log(
+  "dayjs(Date.now() - 55000).fromNow()",
+  "=>",
+  almost1minAgo.fromNow(),
+);
+
+title("7.10 unix()：秒级 Unix 时间戳");
+console.log('dayjs("2024-01-01").unix()', "=>", dayjs("2024-01-01").unix());
+
 console.log();
 line();
 console.log("  演示结束（可与 dayjs 官方 API 对照着讲设计取舍）");

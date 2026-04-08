@@ -104,7 +104,8 @@ export class Dayjs {
   }
 
   /**
-   * 加减：可固定换算的单位走毫秒；月年季度走 Date API
+   * 加减：d/h/m/s/ms 等走毫秒换算；M / y / Q 为日历语义，必须用 utils 里 addCalendarMonths / addCalendarYears，
+   * 不能对 Date 直接 setMonth/setFullYear 硬加（否则会与 dayjs 不一致，详见这两个函数上方注释）。
    */
   add(amount, unit) {
     const n = Number(amount)
@@ -118,6 +119,7 @@ export class Dayjs {
       return new Dayjs(addCalendarYears(base, n))
     }
     if (u === 'Q') {
+      // 季度 = 加 3 个月，月末规则与 M 相同
       return new Dayjs(addCalendarMonths(base, n * 3))
     }
 

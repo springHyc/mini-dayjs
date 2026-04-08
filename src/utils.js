@@ -59,8 +59,12 @@ export function cloneDate(d) {
 }
 
 /**
- * 日历语义加减月份，与 dayjs 一致（见 dayjs 源码 $set 里 M/Y 分支）
- * 先对齐到当月 1 号再改月份，再用 min(原「日」, 目标月天数) —— 避免原生 setMonth 把 1/31+1M 滚到 3 月初
+ * 日历语义加减月份，与官方 dayjs 一致（对应其源码里 $set 的 M 分支思路）。
+ *
+ * 原因：若直接对 Date 做 setMonth(getMonth() + n)，会像「2 月 31 日」这类非法日一样被引擎修正，
+ * 例如 1/31 +1M 往往溢出成 3 月初，而不是闰年 2 月的最后一天。
+ * dayjs 的做法是：先对齐到当月 1 号，再改到目标月，最后用 min(原来的「日」, 目标月天数) 设日
+ *（如 1/31 +1M → 2/29）。年份加减用同套「先 1 号再改年再钳日」的思路，见 addCalendarYears。
  */
 export function addCalendarMonths(date, amount) {
   const d = cloneDate(date)
@@ -72,7 +76,10 @@ export function addCalendarMonths(date, amount) {
   return d
 }
 
-/** 日历语义加减年份，闰年 2/29 等处理与 dayjs 一致 */
+/**
+ * 日历语义加减年份，与 dayjs 的 $set(Y) 一致；闰年 2/29 加减年落到非闰年时会变成 2/28 等。
+ * 不可直接只 setFullYear：否则 2/29+1y 等场景会与 dayjs 不一致，故与月份相同采用「先 1 号再改再钳日」。
+ */
 export function addCalendarYears(date, amount) {
   const d = cloneDate(date)
   const originalDay = d.getDate()
