@@ -14,12 +14,16 @@
  * @param {import('../src/dayjs.js').dayjs} dayjs 工厂，用于把任意输入包成实例
  */
 export default function relativeTimePlugin(_option, Dayjs, dayjs) {
+  /**
+   * @description 相对于当前时刻的差值,base 默认「现在」,从当前时刻看
+   * @returns {string} 相对时间
+   */
   Dayjs.prototype.fromNow = function fromNow() {
     return formatRelative(this.valueOf(), Date.now(), { nowLabel: "刚刚" });
   };
 
   /**
-   * 与另一时刻的差：base 默认「现在」
+   * @description 与另一时刻的差：base 默认「现在」,从当前时刻看向另一时刻
    * @param {string|number|Date|import('../src/dayjs.js').Dayjs} [base]
    */
   Dayjs.prototype.from = function from(base) {
@@ -32,7 +36,10 @@ export default function relativeTimePlugin(_option, Dayjs, dayjs) {
     return formatRelative(this.valueOf(), baseMs, { nowLabel: "同一时刻" });
   };
 
-  /** 方向相反：从「当前时刻」看向本实例（语义与 dayjs 的 to 系列类似，命名保持简短） */
+  /**
+   * @description 与另一时刻的差：base 默认「现在」,从另一时刻看向本实例（语义与 dayjs 的 to 系列类似，命名保持简短）
+   * @returns {string} 相对时间文案
+   */
   Dayjs.prototype.toNow = function toNow() {
     return formatRelative(Date.now(), this.valueOf(), { nowLabel: "刚刚" });
   };
