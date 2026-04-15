@@ -8,7 +8,7 @@
  *   dayjs().fromNow()
  */
 
-export { dayjs, extend, Dayjs, parseToDate } from './src/dayjs.js'
-export { MS, SECOND, MINUTE, HOUR, DAY, WEEK } from './src/constants.js'
+export { dayjs, extend, Dayjs, parseToDate } from './src/dayjs.js';
+export { MS, SECOND, MINUTE, HOUR, DAY, WEEK } from './src/constants.js';
 /** 默认导出与 dayjs 一致：import dayjs from 'mini-dayjs' */
-export { dayjs as default } from './src/dayjs.js'
+export { dayjs as default } from './src/dayjs.js';

@@ -1,120 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>mini-dayjs 浏览器演示</title>
-    <style>
-      :root {
-        --bg: #0f1419;
-        --card: #1a2332;
-        --text: #e7ecf3;
-        --muted: #8b9cb3;
-        --accent: #3d9eff;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-        background: var(--bg);
-        color: var(--text);
-        padding: 1.5rem;
-        line-height: 1.55;
-      }
-      h1 {
-        font-size: 1.15rem;
-        font-weight: 600;
-        margin: 0 0 0.35rem;
-      }
-      .hint {
-        color: var(--muted);
-        font-size: 0.8rem;
-        margin-bottom: 1.25rem;
-      }
-      .hint code {
-        color: var(--accent);
-      }
-      section {
-        background: var(--card);
-        border-radius: 10px;
-        padding: 1rem 1.1rem;
-        margin-bottom: 0.85rem;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      section h2 {
-        margin: 0 0 0.5rem;
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: var(--muted);
-        font-weight: 600;
-      }
-      pre {
-        margin: 0;
-        white-space: pre-wrap;
-        word-break: break-all;
-        font-size: 0.85rem;
-        color: #c8e1ff;
-      }
-      button {
-        margin-top: 0.65rem;
-        padding: 0.45rem 0.85rem;
-        font: inherit;
-        font-size: 0.82rem;
-        cursor: pointer;
-        background: rgba(61, 158, 255, 0.2);
-        color: var(--accent);
-        border: 1px solid rgba(61, 158, 255, 0.45);
-        border-radius: 6px;
-      }
-      button:hover {
-        background: rgba(61, 158, 255, 0.3);
-      }
-    </style>
-  </head>
-  <body>
-    <h1>mini-dayjs 演示</h1>
-    <p class="hint">
-      必须用本地 HTTP 打开（ESM 模块不能用 file:// 直接双击）。在项目根目录执行：
-      <code>npx serve .</code>
-      然后访问本页，例如 <code>http://localhost:3000/demo/index.html</code>
-    </p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>mini-dayjs 浏览器演示</title>
+        <style>
+            :root {
+                --bg: #0f1419;
+                --card: #1a2332;
+                --text: #e7ecf3;
+                --muted: #8b9cb3;
+                --accent: #3d9eff;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                min-height: 100vh;
+                font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+                background: var(--bg);
+                color: var(--text);
+                padding: 1.5rem;
+                line-height: 1.55;
+            }
+            h1 {
+                font-size: 1.15rem;
+                font-weight: 600;
+                margin: 0 0 0.35rem;
+            }
+            .hint {
+                color: var(--muted);
+                font-size: 0.8rem;
+                margin-bottom: 1.25rem;
+            }
+            .hint code {
+                color: var(--accent);
+            }
+            section {
+                background: var(--card);
+                border-radius: 10px;
+                padding: 1rem 1.1rem;
+                margin-bottom: 0.85rem;
+                border: 1px solid rgba(255, 255, 255, 0.06);
+            }
+            section h2 {
+                margin: 0 0 0.5rem;
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: var(--muted);
+                font-weight: 600;
+            }
+            pre {
+                margin: 0;
+                white-space: pre-wrap;
+                word-break: break-all;
+                font-size: 0.85rem;
+                color: #c8e1ff;
+            }
+            button {
+                margin-top: 0.65rem;
+                padding: 0.45rem 0.85rem;
+                font: inherit;
+                font-size: 0.82rem;
+                cursor: pointer;
+                background: rgba(61, 158, 255, 0.2);
+                color: var(--accent);
+                border: 1px solid rgba(61, 158, 255, 0.45);
+                border-radius: 6px;
+            }
+            button:hover {
+                background: rgba(61, 158, 255, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>mini-dayjs 演示</h1>
+        <p class="hint">
+            必须用本地 HTTP 打开（ESM 模块不能用 file:// 直接双击）。在项目根目录执行：
+            <code>npx serve .</code>
+            然后访问本页，例如 <code>http://localhost:3000/demo/index.html</code>
+        </p>
 
-    <section>
-      <h2>输出</h2>
-      <pre id="out">加载中…</pre>
-      <button type="button" id="btn">重新跑一遍</button>
-    </section>
+        <section>
+            <h2>输出</h2>
+            <pre id="out">加载中…</pre>
+            <button type="button" id="btn">重新跑一遍</button>
+        </section>
 
-    <script type="module">
-      /**
-       * 浏览器里直接 import 项目根目录的 index.js（与终端 demo 同一套 API）
-       */
-      import dayjs, { extend } from '../index.js'
-      import relativeTime from '../plugins/relativeTime.js'
+        <script type="module">
+            /**
+             * 浏览器里直接 import 项目根目录的 index.js（与终端 demo 同一套 API）
+             */
+            import dayjs, { extend } from '../index.js';
+            import relativeTime from '../plugins/relativeTime.js';
 
-      extend(relativeTime)
+            extend(relativeTime);
 
-      function run() {
-        const lines = []
-        const d = dayjs('2024-06-15T14:30:00')
-        lines.push(`format: ${d.format('YYYY-MM-DD HH:mm')}`)
-        lines.push(`add 1M (from 2024-01-31): ${dayjs('2024-01-31').add(1, 'M').format('YYYY-MM-DD')}`)
-        lines.push(`startOf month: ${dayjs('2024-06-15').startOf('M').format('YYYY-MM-DD HH:mm:ss')}`)
-        lines.push(`endOf year: ${dayjs('2024-06-15').endOf('y').format('YYYY-MM-DD HH:mm:ss')}`)
-        const past = dayjs(Date.now() - 45 * 1000)
-        lines.push(`fromNow (45s ago): ${past.fromNow()}`)
-        lines.push(
-          `isSame day: ${dayjs('2024-01-01').isSame(dayjs('2024-01-01T12:00:00'), 'd')}`
-        )
-        document.getElementById('out').textContent = lines.join('\n')
-      }
+            function run() {
+                const lines = [];
+                const d = dayjs('2024-06-15T14:30:00');
+                lines.push(`format: ${d.format('YYYY-MM-DD HH:mm')}`);
+                lines.push(
+                    `add 1M (from 2024-01-31): ${dayjs('2024-01-31').add(1, 'M').format('YYYY-MM-DD')}`
+                );
+                lines.push(
+                    `startOf month: ${dayjs('2024-06-15').startOf('M').format('YYYY-MM-DD HH:mm:ss')}`
+                );
+                lines.push(
+                    `endOf year: ${dayjs('2024-06-15').endOf('y').format('YYYY-MM-DD HH:mm:ss')}`
+                );
+                const past = dayjs(Date.now() - 45 * 1000);
+                lines.push(`fromNow (45s ago): ${past.fromNow()}`);
+                lines.push(
+                    `isSame day: ${dayjs('2024-01-01').isSame(dayjs('2024-01-01T12:00:00'), 'd')}`
+                );
+                document.getElementById('out').textContent = lines.join('\n');
+            }
 
-      run()
-      document.getElementById('btn').addEventListener('click', run)
-    </script>
-  </body>
+            run();
+            document.getElementById('btn').addEventListener('click', run);
+        </script>
+    </body>
 </html>

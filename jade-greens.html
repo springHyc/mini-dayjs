@@ -1,304 +1,299 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>翡翠色谱 · 绿蓝紫</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
-        background: linear-gradient(
-          160deg,
-          #0d1117 0%,
-          #161b22 45%,
-          #0d1117 100%
-        );
-        color: #e6edf3;
-        line-height: 1.5;
-        padding: 1rem 1rem 1.25rem;
-      }
-      h1 {
-        text-align: center;
-        font-weight: 600;
-        font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-        letter-spacing: 0.06em;
-        margin: 0 0 0.25rem;
-        color: #f0f6fc;
-      }
-      .subtitle {
-        text-align: center;
-        font-size: 0.78rem;
-        color: #8b949e;
-        margin-bottom: 0.85rem;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.85rem;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      @media (max-width: 720px) {
-        .grid {
-          grid-template-columns: repeat(2, 1fr);
-          max-width: 520px;
-        }
-      }
-      @media (max-width: 400px) {
-        .grid {
-          grid-template-columns: 1fr;
-          max-width: none;
-        }
-      }
-      .card {
-        background: #21262d;
-        border: 1px solid #30363d;
-        border-radius: 10px;
-        overflow: hidden;
-        transition:
-          border-color 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-      .card:hover {
-        border-color: #484f58;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-      }
-      .swatch {
-        height: 96px;
-        width: 100%;
-        position: relative;
-      }
-      .swatch::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-        pointer-events: none;
-      }
-      .body {
-        padding: 0.65rem 0.7rem 0.75rem;
-      }
-      .name {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #f0f6fc;
-        margin: 0 0 0.25rem;
-        line-height: 1.25;
-      }
-      .rgba {
-        font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace;
-        font-size: 0.65rem;
-        color: #79c0ff;
-        margin: 0 0 0.4rem;
-        line-height: 1.35;
-        word-break: break-all;
-      }
-      .desc {
-        font-size: 0.78rem;
-        color: #8b949e;
-        margin: 0;
-        line-height: 1.4;
-      }
-      .section {
-        margin-top: 1.75rem;
-      }
-      .section:first-of-type {
-        margin-top: 0;
-      }
-      .section-title {
-        text-align: center;
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: #c9d1d9;
-        margin: 0 0 0.65rem;
-        letter-spacing: 0.06em;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>翡翠色谱</h1>
-    <p class="subtitle">常见翡翠绿、蓝、紫色系 · RGBA 色块与特点</p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>翡翠色谱 · 绿蓝紫</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                min-height: 100vh;
+                font-family: 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', sans-serif;
+                background: linear-gradient(160deg, #0d1117 0%, #161b22 45%, #0d1117 100%);
+                color: #e6edf3;
+                line-height: 1.5;
+                padding: 1rem 1rem 1.25rem;
+            }
+            h1 {
+                text-align: center;
+                font-weight: 600;
+                font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+                letter-spacing: 0.06em;
+                margin: 0 0 0.25rem;
+                color: #f0f6fc;
+            }
+            .subtitle {
+                text-align: center;
+                font-size: 0.78rem;
+                color: #8b949e;
+                margin-bottom: 0.85rem;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.85rem;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            @media (max-width: 720px) {
+                .grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    max-width: 520px;
+                }
+            }
+            @media (max-width: 400px) {
+                .grid {
+                    grid-template-columns: 1fr;
+                    max-width: none;
+                }
+            }
+            .card {
+                background: #21262d;
+                border: 1px solid #30363d;
+                border-radius: 10px;
+                overflow: hidden;
+                transition:
+                    border-color 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+            .card:hover {
+                border-color: #484f58;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            }
+            .swatch {
+                height: 96px;
+                width: 100%;
+                position: relative;
+            }
+            .swatch::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+                pointer-events: none;
+            }
+            .body {
+                padding: 0.65rem 0.7rem 0.75rem;
+            }
+            .name {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #f0f6fc;
+                margin: 0 0 0.25rem;
+                line-height: 1.25;
+            }
+            .rgba {
+                font-family: ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+                font-size: 0.65rem;
+                color: #79c0ff;
+                margin: 0 0 0.4rem;
+                line-height: 1.35;
+                word-break: break-all;
+            }
+            .desc {
+                font-size: 0.78rem;
+                color: #8b949e;
+                margin: 0;
+                line-height: 1.4;
+            }
+            .section {
+                margin-top: 1.75rem;
+            }
+            .section:first-of-type {
+                margin-top: 0;
+            }
+            .section-title {
+                text-align: center;
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: #c9d1d9;
+                margin: 0 0 0.65rem;
+                letter-spacing: 0.06em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>翡翠色谱</h1>
+        <p class="subtitle">常见翡翠绿、蓝、紫色系 · RGBA 色块与特点</p>
 
-    <section class="section">
-      <h2 class="section-title">绿色系</h2>
-      <div class="grid" id="greens"></div>
-    </section>
+        <section class="section">
+            <h2 class="section-title">绿色系</h2>
+            <div class="grid" id="greens"></div>
+        </section>
 
-    <section class="section">
-      <h2 class="section-title">蓝色系</h2>
-      <div class="grid" id="blues"></div>
-    </section>
+        <section class="section">
+            <h2 class="section-title">蓝色系</h2>
+            <div class="grid" id="blues"></div>
+        </section>
 
-    <section class="section">
-      <h2 class="section-title">紫色系</h2>
-      <div class="grid" id="purples"></div>
-    </section>
+        <section class="section">
+            <h2 class="section-title">紫色系</h2>
+            <div class="grid" id="purples"></div>
+        </section>
 
-    <script>
-      const greenItems = [
-        {
-          name: "帝王绿",
-          rgba: "rgba(20, 95, 40, 0.95)",
-          desc: "浓郁纯正，顶级翡翠",
-        },
-        {
-          name: "浓阳绿",
-          rgba: "rgba(50, 140, 60, 0.90)",
-          desc: "鲜艳明亮，偏黄调",
-        },
-        {
-          name: "标准阳绿",
-          rgba: "rgba(75, 165, 80, 0.85)",
-          desc: "鲜活通透，市场热门",
-        },
-        {
-          name: "浅阳绿",
-          rgba: "rgba(120, 190, 110, 0.80)",
-          desc: "清新淡雅，如春日嫩叶",
-        },
-        {
-          name: "苹果绿",
-          rgba: "rgba(140, 210, 120, 0.75)",
-          desc: "明亮轻快，年轻化",
-        },
-        {
-          name: "菠菜绿",
-          rgba: "rgba(40, 100, 50, 0.95)",
-          desc: "偏暗偏灰，沉稳厚重",
-        },
-        {
-          name: "油青绿",
-          rgba: "rgba(50, 90, 80, 0.90)",
-          desc: "偏蓝偏灰，油润感",
-        },
-        {
-          name: "豆青绿",
-          rgba: "rgba(160, 200, 150, 0.70)",
-          desc: "清淡柔和，入门级",
-        },
-        {
-          name: "蓝水绿",
-          rgba: "rgba(60, 120, 130, 0.85)",
-          desc: "蓝绿交融，冷色调",
-        },
-        {
-          name: "晴水绿",
-          rgba: "rgba(100, 180, 170, 0.80)",
-          desc: "淡雅清透，如雨后晴空",
-        },
-      ];
+        <script>
+            const greenItems = [
+                {
+                    name: '帝王绿',
+                    rgba: 'rgba(20, 95, 40, 0.95)',
+                    desc: '浓郁纯正，顶级翡翠',
+                },
+                {
+                    name: '浓阳绿',
+                    rgba: 'rgba(50, 140, 60, 0.90)',
+                    desc: '鲜艳明亮，偏黄调',
+                },
+                {
+                    name: '标准阳绿',
+                    rgba: 'rgba(75, 165, 80, 0.85)',
+                    desc: '鲜活通透，市场热门',
+                },
+                {
+                    name: '浅阳绿',
+                    rgba: 'rgba(120, 190, 110, 0.80)',
+                    desc: '清新淡雅，如春日嫩叶',
+                },
+                {
+                    name: '苹果绿',
+                    rgba: 'rgba(140, 210, 120, 0.75)',
+                    desc: '明亮轻快，年轻化',
+                },
+                {
+                    name: '菠菜绿',
+                    rgba: 'rgba(40, 100, 50, 0.95)',
+                    desc: '偏暗偏灰，沉稳厚重',
+                },
+                {
+                    name: '油青绿',
+                    rgba: 'rgba(50, 90, 80, 0.90)',
+                    desc: '偏蓝偏灰，油润感',
+                },
+                {
+                    name: '豆青绿',
+                    rgba: 'rgba(160, 200, 150, 0.70)',
+                    desc: '清淡柔和，入门级',
+                },
+                {
+                    name: '蓝水绿',
+                    rgba: 'rgba(60, 120, 130, 0.85)',
+                    desc: '蓝绿交融，冷色调',
+                },
+                {
+                    name: '晴水绿',
+                    rgba: 'rgba(100, 180, 170, 0.80)',
+                    desc: '淡雅清透，如雨后晴空',
+                },
+            ];
 
-      const blueItems = [
-        {
-          name: "天空蓝",
-          rgba: "rgba(135, 206, 235, 0.85)",
-          desc: "明亮纯净，如晴朗天空",
-        },
-        {
-          name: "蓝水翡翠",
-          rgba: "rgba(100, 160, 180, 0.80)",
-          desc: "蓝绿交融，通透水润",
-        },
-        {
-          name: "湖水蓝",
-          rgba: "rgba(70, 130, 150, 0.85)",
-          desc: "深邃静谧，浓郁优雅",
-        },
-        {
-          name: "晴水蓝",
-          rgba: "rgba(120, 190, 200, 0.75)",
-          desc: "淡雅清透，雨后晴空感",
-        },
-        {
-          name: "油青蓝",
-          rgba: "rgba(60, 90, 100, 0.90)",
-          desc: "偏灰偏暗，油润沉稳",
-        },
-        {
-          name: "墨翠蓝（透光）",
-          rgba: "rgba(30, 60, 80, 0.95)",
-          desc: "深邃神秘，透光显蓝绿",
-        },
-        {
-          name: "紫罗兰蓝",
-          rgba: "rgba(120, 130, 180, 0.80)",
-          desc: "蓝紫色调，冷艳浪漫",
-        },
-        {
-          name: "冰蓝",
-          rgba: "rgba(180, 220, 230, 0.70)",
-          desc: "极淡近无，冰透清冷",
-        },
-        {
-          name: "灰蓝",
-          rgba: "rgba(100, 120, 130, 0.85)",
-          desc: "带灰色调，低调内敛",
-        },
-      ];
+            const blueItems = [
+                {
+                    name: '天空蓝',
+                    rgba: 'rgba(135, 206, 235, 0.85)',
+                    desc: '明亮纯净，如晴朗天空',
+                },
+                {
+                    name: '蓝水翡翠',
+                    rgba: 'rgba(100, 160, 180, 0.80)',
+                    desc: '蓝绿交融，通透水润',
+                },
+                {
+                    name: '湖水蓝',
+                    rgba: 'rgba(70, 130, 150, 0.85)',
+                    desc: '深邃静谧，浓郁优雅',
+                },
+                {
+                    name: '晴水蓝',
+                    rgba: 'rgba(120, 190, 200, 0.75)',
+                    desc: '淡雅清透，雨后晴空感',
+                },
+                {
+                    name: '油青蓝',
+                    rgba: 'rgba(60, 90, 100, 0.90)',
+                    desc: '偏灰偏暗，油润沉稳',
+                },
+                {
+                    name: '墨翠蓝（透光）',
+                    rgba: 'rgba(30, 60, 80, 0.95)',
+                    desc: '深邃神秘，透光显蓝绿',
+                },
+                {
+                    name: '紫罗兰蓝',
+                    rgba: 'rgba(120, 130, 180, 0.80)',
+                    desc: '蓝紫色调，冷艳浪漫',
+                },
+                {
+                    name: '冰蓝',
+                    rgba: 'rgba(180, 220, 230, 0.70)',
+                    desc: '极淡近无，冰透清冷',
+                },
+                {
+                    name: '灰蓝',
+                    rgba: 'rgba(100, 120, 130, 0.85)',
+                    desc: '带灰色调，低调内敛',
+                },
+            ];
 
-      const purpleItems = [
-        {
-          name: "皇家紫",
-          rgba: "rgba(120, 60, 140, 0.90)",
-          desc: "浓郁纯正，高贵典雅，极品",
-        },
-        {
-          name: "红紫",
-          rgba: "rgba(160, 80, 120, 0.85)",
-          desc: "偏红调，温暖娇艳",
-        },
-        {
-          name: "蓝紫",
-          rgba: "rgba(100, 80, 160, 0.85)",
-          desc: "偏蓝调，冷艳神秘",
-        },
-        {
-          name: "粉紫",
-          rgba: "rgba(200, 140, 180, 0.75)",
-          desc: "淡雅柔和，少女心",
-        },
-        {
-          name: "茄紫",
-          rgba: "rgba(90, 50, 100, 0.90)",
-          desc: "深紫如茄，沉稳厚重",
-        },
-        {
-          name: "紫罗兰",
-          rgba: "rgba(180, 130, 170, 0.80)",
-          desc: "标准紫调，浪漫经典",
-        },
-        {
-          name: "浅紫",
-          rgba: "rgba(220, 180, 210, 0.70)",
-          desc: "极淡近白，清新素雅",
-        },
-        {
-          name: "春带彩紫",
-          rgba: "rgba(160, 120, 160, 0.80)",
-          desc: "紫绿相间，双色珍贵",
-        },
-        {
-          name: "葡萄紫",
-          rgba: "rgba(140, 90, 130, 0.85)",
-          desc: "如成熟葡萄，饱满诱人",
-        },
-        {
-          name: "灰紫",
-          rgba: "rgba(130, 110, 130, 0.85)",
-          desc: "带灰调，低调内敛",
-        },
-      ];
+            const purpleItems = [
+                {
+                    name: '皇家紫',
+                    rgba: 'rgba(120, 60, 140, 0.90)',
+                    desc: '浓郁纯正，高贵典雅，极品',
+                },
+                {
+                    name: '红紫',
+                    rgba: 'rgba(160, 80, 120, 0.85)',
+                    desc: '偏红调，温暖娇艳',
+                },
+                {
+                    name: '蓝紫',
+                    rgba: 'rgba(100, 80, 160, 0.85)',
+                    desc: '偏蓝调，冷艳神秘',
+                },
+                {
+                    name: '粉紫',
+                    rgba: 'rgba(200, 140, 180, 0.75)',
+                    desc: '淡雅柔和，少女心',
+                },
+                {
+                    name: '茄紫',
+                    rgba: 'rgba(90, 50, 100, 0.90)',
+                    desc: '深紫如茄，沉稳厚重',
+                },
+                {
+                    name: '紫罗兰',
+                    rgba: 'rgba(180, 130, 170, 0.80)',
+                    desc: '标准紫调，浪漫经典',
+                },
+                {
+                    name: '浅紫',
+                    rgba: 'rgba(220, 180, 210, 0.70)',
+                    desc: '极淡近白，清新素雅',
+                },
+                {
+                    name: '春带彩紫',
+                    rgba: 'rgba(160, 120, 160, 0.80)',
+                    desc: '紫绿相间，双色珍贵',
+                },
+                {
+                    name: '葡萄紫',
+                    rgba: 'rgba(140, 90, 130, 0.85)',
+                    desc: '如成熟葡萄，饱满诱人',
+                },
+                {
+                    name: '灰紫',
+                    rgba: 'rgba(130, 110, 130, 0.85)',
+                    desc: '带灰调，低调内敛',
+                },
+            ];
 
-      function renderGrid(container, items) {
-        items.forEach(({ name, rgba, desc }) => {
-          const card = document.createElement("article");
-          card.className = "card";
-          card.innerHTML = `
+            function renderGrid(container, items) {
+                items.forEach(({ name, rgba, desc }) => {
+                    const card = document.createElement('article');
+                    card.className = 'card';
+                    card.innerHTML = `
         <div class="swatch" style="background:${rgba}"></div>
         <div class="body">
           <h2 class="name">${name}</h2>
@@ -306,13 +301,13 @@
           <p class="desc">${desc}</p>
         </div>
       `;
-          container.appendChild(card);
-        });
-      }
+                    container.appendChild(card);
+                });
+            }
 
-      renderGrid(document.getElementById("greens"), greenItems);
-      renderGrid(document.getElementById("blues"), blueItems);
-      renderGrid(document.getElementById("purples"), purpleItems);
-    </script>
-  </body>
+            renderGrid(document.getElementById('greens'), greenItems);
+            renderGrid(document.getElementById('blues'), blueItems);
+            renderGrid(document.getElementById('purples'), purpleItems);
+        </script>
+    </body>
 </html>

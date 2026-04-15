@@ -5,8 +5,8 @@
 
 /** 数字左侧补零 */
 export function pad(n, len = 2) {
-  const s = String(Math.floor(Math.abs(n)));
-  return s.length >= len ? s : "0".repeat(len - s.length) + s;
+    const s = String(Math.floor(Math.abs(n)));
+    return s.length >= len ? s : '0'.repeat(len - s.length) + s;
 }
 
 /**
@@ -17,37 +17,37 @@ export function pad(n, len = 2) {
  * YYYY 年 | MM 月 | DD 日 | HH 时 | mm 分 | ss 秒 | SSS 毫秒 | d 星期(0-6)
  */
 export function formatWithTemplate(date, template) {
-  const Y = date.getFullYear();
-  const M = date.getMonth() + 1;
-  const D = date.getDate();
-  const H = date.getHours();
-  const m = date.getMinutes();
-  const s = date.getSeconds();
-  const ms = date.getMilliseconds();
-  const d = date.getDay();
+    const Y = date.getFullYear();
+    const M = date.getMonth() + 1;
+    const D = date.getDate();
+    const H = date.getHours();
+    const m = date.getMinutes();
+    const s = date.getSeconds();
+    const ms = date.getMilliseconds();
+    const d = date.getDay();
 
-  return template.replace(/YYYY|MM|DD|HH|mm|ss|SSS|d/g, (token) => {
-    switch (token) {
-      case "YYYY":
-        return pad(Y, 4);
-      case "MM":
-        return pad(M);
-      case "DD":
-        return pad(D);
-      case "HH":
-        return pad(H);
-      case "mm":
-        return pad(m);
-      case "ss":
-        return pad(s);
-      case "SSS":
-        return pad(ms, 3);
-      case "d":
-        return String(d);
-      default:
-        return token;
-    }
-  });
+    return template.replace(/YYYY|MM|DD|HH|mm|ss|SSS|d/g, (token) => {
+        switch (token) {
+            case 'YYYY':
+                return pad(Y, 4);
+            case 'MM':
+                return pad(M);
+            case 'DD':
+                return pad(D);
+            case 'HH':
+                return pad(H);
+            case 'mm':
+                return pad(m);
+            case 'ss':
+                return pad(s);
+            case 'SSS':
+                return pad(ms, 3);
+            case 'd':
+                return String(d);
+            default:
+                return token;
+        }
+    });
 }
 
 /**
@@ -55,7 +55,7 @@ export function formatWithTemplate(date, template) {
  * 不可变风格 API（dayjs）会在每次变更时 new Date，本质也是避免共享引用
  */
 export function cloneDate(d) {
-  return new Date(d.getTime());
+    return new Date(d.getTime());
 }
 
 /**
@@ -67,13 +67,13 @@ export function cloneDate(d) {
  *（如 1/31 +1M → 2/29）。年份加减用同套「先 1 号再改年再钳日」的思路，见 addCalendarYears。
  */
 export function addCalendarMonths(date, amount) {
-  const d = cloneDate(date);
-  const originalDay = d.getDate();
-  d.setDate(1);
-  d.setMonth(d.getMonth() + amount);
-  const maxDay = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
-  d.setDate(Math.min(originalDay, maxDay));
-  return d;
+    const d = cloneDate(date);
+    const originalDay = d.getDate();
+    d.setDate(1);
+    d.setMonth(d.getMonth() + amount);
+    const maxDay = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+    d.setDate(Math.min(originalDay, maxDay));
+    return d;
 }
 
 /**
@@ -81,11 +81,11 @@ export function addCalendarMonths(date, amount) {
  * 不可直接只 setFullYear：否则 2/29+1y 等场景会与 dayjs 不一致，故与月份相同采用「先 1 号再改再钳日」。
  */
 export function addCalendarYears(date, amount) {
-  const d = cloneDate(date);
-  const originalDay = d.getDate();
-  d.setDate(1);
-  d.setFullYear(d.getFullYear() + amount);
-  const maxDay = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
-  d.setDate(Math.min(originalDay, maxDay));
-  return d;
+    const d = cloneDate(date);
+    const originalDay = d.getDate();
+    d.setDate(1);
+    d.setFullYear(d.getFullYear() + amount);
+    const maxDay = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+    d.setDate(Math.min(originalDay, maxDay));
+    return d;
 }
